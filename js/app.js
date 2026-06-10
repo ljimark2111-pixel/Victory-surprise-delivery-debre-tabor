@@ -1,13 +1,3 @@
-// Mobile Drawer Menu Logic
-function toggleDrawer() {
-    const drawer = document.getElementById('drawerMenu');
-    const overlay = document.getElementById('overlay');
-    if (drawer && overlay) {
-        drawer.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
-}
-
 // Order Form Submission Handling
 function handleOrderSubmit(event) {
     event.preventDefault();
@@ -22,46 +12,20 @@ function handleOrderSubmit(event) {
         return;
     }
 
-    // Generate a random Order ID for Debre Tabor delivery
     const orderId = 'VIC-' + Math.floor(100000 + Math.random() * 900000);
     
-    // Save details to localStorage to show in Profile/Tracking
-    localStorage.setItem('lastOrderId', orderId);
-    localStorage.setItem('customerName', name);
-    localStorage.setItem('customerPhone', phone);
+    // ለሁለቱ የትዕዛዝ ተቀባዮች የሚሄደው መልዕክት
+    const smsMessage = `📦 አዲስ ትዕዛዝ ከቪክቶሪ\nID: ${orderId}\nስም: ${name}\nስልክ: ${phone}\nፓኬጅ: ${packageType}\nአድራሻ: ${details}`;
+
+    // ለኢፌክቲቭ የስልክ አይነቶች (አንድ ላይ በኮማ ወይም በሰሚኮሎን መለየት)
+    // አብዛኛው ስልክ ላይ ሁለቱንም ቁጥሮች በአንድ ላይ ለመሙላት ይረዳል
+    const phoneNumbers = "+251941343597;+251935728526"; 
     
-    alert(`🎉 ማዘዣዎ በስኬት ተመዝግቧል!\nየማዘዣ መለያ ቁጥር (Order ID)፦ ${orderId}\nይህንን ቁጥር በመያዝ የቀጥታ ጉዞውን መከታተል ይችላሉ።`);
+    // የኤስኤምኤስ ሊንክ መፍጠር
+    const smsUrl = `sms:${phoneNumbers}?body=${encodeURIComponent(smsMessage)}`;
     
-    // Redirect to tracking page
-    window.location.href = 'tracking.html';
+    alert('🎉 ትዕዛዝዎ ተዘጋጅቷል!\n"እሺ" ሲሉ ወደ ስልክዎ የኤስኤምኤስ መላኪያ ይወስድዎታል፣ እባክዎ ለትዕዛዝ ተቀባዮቹ "Send" የሚለውን ይጫኑ።');
+    
+    // ወደ ኤስኤምኤስ መተግበሪያ መውሰጃ
+    window.location.href = smsUrl;
 }
-
-// Tracking Simulation Logic
-function simulateTracking() {
-    const trackInput = document.getElementById('trackInput').value.trim();
-    const trackingStatus = document.getElementById('trackingStatus');
-    
-    if (!trackInput) {
-        alert('እባክዎ መጀመሪያ የትዕዛዝ መለያ ቁጥር (Order ID) ያስገቡ!');
-        return;
-    }
-
-    // Simple simulation response
-    alert(`የትዕዛዝ ቁጥር ${trackInput} የቀጥታ መረጃ በመፈለግ ላይ ነው...`);
-}
-
-// Load Profile Data if exists
-document.addEventListener('DOMContentLoaded', () => {
-    const savedName = localStorage.getItem('customerName');
-    const savedPhone = localStorage.getItem('customerPhone');
-    
-    const profName = document.getElementById('profName');
-    const profPhone = document.getElementById('profPhone');
-    
-    if (savedName && profName) {
-        profName.textContent = savedName;
-    }
-    if (savedPhone && profPhone) {
-        profPhone.textContent = savedPhone;
-    }
-});
