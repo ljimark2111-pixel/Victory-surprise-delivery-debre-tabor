@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory Surprise Delivery - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="particles"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <img src="assets/logo.png" alt="Victory Logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'">
+                <span id="logo-fallback" style="display:none;" class="logo-text">V<span>ICTORY</span></span>
+            </div>
+            <div class="search-bar-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="የሚፈልጉትን ስጦታ እዚህ ይፈልጉ...">
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">🏠 ዋና ገጽ</a>
+                <a href="order.html" class="nav-link">📦 ማዘዣ</a>
+                <a href="tracking.html" class="nav-link">🚚 መከታተያ</a>
+                <a href="about.html" class="nav-link">ℹ️ ስለ እኛ</a>
+                <a href="contact.html" class="nav-link">📞 አድራሻ</a>
+            </nav>
+            <div class="menu-toggle" onclick="toggleDrawer()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <h3>ማውጫ Menu</h3>
+            <span class="close-btn" onclick="toggleDrawer()">&times;</span>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> ዋና ገጽ (Home)</a></li>
+            <li><a href="order.html"><i class="fa-solid fa-box-open"></i> ዕቃ ማዘዣ (Order)</a></li>
+            <li><a href="tracking.html"><i class="fa-solid fa-truck-fast"></i> የቀጥታ መከታተያ (Tracking)</a></li>
+            <li><a href="profile.html"><i class="fa-solid fa-user"></i> ፕሮፋይል (Profile)</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> ስለ እኛ (About)</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-phone"></i> አድራሻ (Contact)</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+    <section class="hero animate-fade-in">
+        <div class="hero-content">
+            <h1 class="hero-title">Victory Surprise Delivery</h1>
+            <p class="hero-subtitle">ለወዳጅ ዘመድዎ የማይረሳ ደስታን እና አስገራሚ ስጦታዎችን በጥራት እና በፍጥነት እናደርሳለን!</p>
+            <div class="hero-btns">
+                <a href="order.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> አሁኑኑ እዘዝ</a>
+                <a href="tracking.html" class="btn btn-outline"><i class="fa-solid fa-location-crosshairs"></i> ትዕዛዝ ተከታተል</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container">
+        <h2 class="section-title">⭐ የደንበኞቻችን ምስክርነት</h2>
+        <div class="section-line"></div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <h4>ዮናስ ካሳሁን</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p class="review-text">"በጣም ፈጣንና አስተማማኝ ናቸው። ለእናቴ የልደት ሰርፕራይዝ አድርጌላት በጣም ነው ደስ ያላቸው። አመሰግናለሁ ቪክቶሪ!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <h4>ሄለን ሰለሞን</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <p class="review-text">"ከውጪ ሆኜ ለቤተሰቦቼ ሰርፕራይዝ አድርጌ ነበር፤ አቀራረባቸውና ዴሊቨሪው እጅግ በጣም ፕሮፌሽናል ነው። ምርጥ አገልግሎት!"</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>ዋና ገጽ</span>
+        </a>
+        <a href="order.html" class="bottom-nav-item">
+            <i class="fa-solid fa-box"></i>
+            <span>ማዘዣ</span>
+        </a>
+        <a href="tracking.html" class="bottom-nav-item">
+            <i class="fa-solid fa-truck"></i>
+            <span>መከታተያ</span>
+        </a>
+        <a href="profile.html" class="bottom-nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>ፕሮፋይል</span>
+        </a>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
