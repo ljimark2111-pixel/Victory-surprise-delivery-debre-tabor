@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory - Live Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'"><span class="logo-text">V<span>ICTORY</span></span></div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">🏠 ዋና ገጽ</a>
+                <a href="order.html" class="nav-link">📦 ማዘዣ</a>
+                <a href="tracking.html" class="nav-link active">🚚 መከታተያ</a>
+                <a href="about.html" class="nav-link">ℹ️ ስለ እኛ</a>
+                <a href="contact.html" class="nav-link">📞 አድራሻ</a>
+            </nav>
+            <div class="menu-toggle" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header"><h3>Menu</h3><span class="close-btn" onclick="toggleDrawer()">&times;</span></div>
+        <ul class="drawer-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> ዋና ገጽ</a></li>
+            <li><a href="order.html"><i class="fa-solid fa-box-open"></i> ዕቃ ማዘዣ</a></li>
+            <li><a href="tracking.html" class="active"><i class="fa-solid fa-truck-fast"></i> የቀጥታ መከታተያ</a></li>
+            <li><a href="profile.html"><i class="fa-solid fa-user"></i> ፕሮፋይል</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+    <main class="container section">
+        <div class="form-wrap animate-fade-in" style="max-width: 700px;">
+            <h2 class="form-title"><i class="fa-solid fa-route"></i> የቀጥታ ትዕዛዝ መከታተያ</h2>
+            
+            <div class="search-bar-container" style="margin-bottom: 30px; width:100%; display: flex;">
+                <i class="fa-solid fa-hashtag search-icon" style="position: absolute; margin-top: 13px; margin-left: 15px;"></i>
+                <input type="text" id="trackInput" placeholder="የትዕዛዝ መለያ ቁጥር (Order ID) ያስገቡ..." style="padding-left: 40px;">
+                <button class="btn btn-primary" onclick="simulateTracking()" style="padding: 10px 20px; font-size: 14px; border-radius: 8px; margin-left: 10px;">ፈልግ</button>
+            </div>
+
+            <div class="tracking-timeline" id="trackingStatus">
+                <div class="step completed">
+                    <div class="icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                    <div class="status-info">
+                        <h4>ትዕዛዙ ተቀባይነት አግኝቷል</h4>
+                        <p>ትዕዛዝዎ በስርዓታችን ውስጥ ተመዝግቧል።</p>
+                    </div>
+                </div>
+                <div class="step completed">
+                    <div class="icon"><i class="fa-solid fa-gift"></i></div>
+                    <div class="status-info">
+                        <h4>ስጦታው እየተዘጋጀ ነው</h4>
+                        <p>የመረጡት ጥቅል በጥራት እየታሸገ ነው።</p>
+                    </div>
+                </div>
+                <div class="step active">
+                    <div class="icon-active"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <div class="status-info">
+                        <h4>በጉዞ ላይ ነው (On Delivery)</h4>
+                        <p>የቪክቶሪ መልዕክተኛ ወደ መዳረሻው እየተጓዘ ነው።</p>
+                    </div>
+                </div>
+                <div class="step text-muted">
+                    <div class="icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+                    <div class="status-info">
+                        <h4>በሰላም ደርሷል (Delivered)</h4>
+                        <p>ስጦታው ለተቀባዩ ሲደርስ እዚህ ይረጋገጣል።</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i><span>ዋና ገጽ</span></a>
+        <a href="order.html" class="bottom-nav-item"><i class="fa-solid fa-box"></i><span>ማዘዣ</span></a>
+        <a href="tracking.html" class="bottom-nav-item active"><i class="fa-solid fa-truck"></i><span>መከታተያ</span></a>
+        <a href="profile.html" class="bottom-nav-item"><i class="fa-solid fa-user"></i><span>ፕሮፋይል</span></a>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
