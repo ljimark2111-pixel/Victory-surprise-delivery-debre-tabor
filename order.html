@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victory - ማዘዣ ፎርም</title>
+    <title>Victory - ስጦታ ማዘዣ ፎርም</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -17,19 +17,19 @@
                 <a href="order.html" class="nav-link active">📦 ማዘዣ</a>
                 <a href="tracking.html" class="nav-link">🚚 መከታተያ</a>
                 <a href="about.html" class="nav-link">ℹ️ ስለ እኛ</a>
-                <a href="contact.html" class="nav-link">📞 አድራሻ</a>
             </nav>
             <div class="menu-toggle" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></div>
         </div>
     </header>
 
     <div class="drawer" id="drawerMenu">
-        <div class="drawer-header"><h3>Menu</h3><span class="close-btn" onclick="toggleDrawer()">&times;</span></div>
+        <div class="drawer-header"><h3>ማውጫ Menu</h3><span class="close-btn" onclick="toggleDrawer()">&times;</span></div>
         <ul class="drawer-links">
             <li><a href="index.html"><i class="fa-solid fa-house"></i> ዋና ገጽ</a></li>
             <li><a href="order.html" class="active"><i class="fa-solid fa-box-open"></i> ዕቃ ማዘዣ</a></li>
             <li><a href="tracking.html"><i class="fa-solid fa-truck-fast"></i> የቀጥታ መከታተያ</a></li>
             <li><a href="profile.html"><i class="fa-solid fa-user"></i> ፕሮፋይል</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> ስለ እኛ</a></li>
         </ul>
     </div>
     <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
@@ -37,28 +37,26 @@
     <main class="container section">
         <div class="form-wrap animate-fade-in">
             <h2 class="form-title"><i class="fa-solid fa-basket-shopping"></i> የስጦታ ማዘዣ ፎርም</h2>
-            <p style="color: #aaa; text-align: center; margin-bottom: 25px;">እባክዎን ከዚህ በታች ያለውን ፎርም በትክክል ይሙሉ</p>
-            
-            <form id="orderForm" onsubmit="handleOrderSubmit(event)">
+            <form onsubmit="handleOrderSubmit(event)">
                 <div class="form-group">
-                    <label for="customerName">የአዛዥ ሙሉ ስም</label>
-                    <input type="text" id="customerName" placeholder="እባክዎ ስምዎን ያስገቡ" required>
+                    <label>የአዛዥ ሙሉ ስም</label>
+                    <input type="text" id="customerName" placeholder="እባክህ ስምህን አስገባ" required>
                 </div>
                 <div class="form-group">
-                    <label for="customerPhone">የአዛዥ ስልክ ቁጥር</label>
+                    <label>የአዛዥ ስልክ ቁጥር</label>
                     <input type="tel" id="customerPhone" placeholder="+251 9..." required>
                 </div>
                 <div class="form-group">
-                    <label for="packageType">የስጦታ/የፓኬጅ አይነት</label>
-                    <select id="packageType" required>
-                        <option value="premium">Premium Surprise Box 🌟</option>
-                        <option value="birthday">Birthday Celebration Pack 🎂</option>
-                        <option value="anniversary">Anniversary Romantic Package 🌹</option>
-                        <option value="custom">Custom Choice Pack 🛍️</option>
+                    <label>የስጦታ/የፓኬጅ አይነት</label>
+                    <select id="packageType">
+                        <option value="Standard Surprise Box 🎁">Standard Surprise Box 🎁</option>
+                        <option value="Premium Surprise Box 🌟">Premium Surprise Box 🌟</option>
+                        <option value="Birthday Special Package 🎂">Birthday Special Package 🎂</option>
+                        <option value="Custom Surprise Request ✨">Custom Surprise Request ✨</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="deliveryDetails">ተጨማሪ ማብራሪያ (የመላኪያ አድራሻ እና የሚጻፍ መልዕክት)</label>
+                    <label>ተጨማሪ ማብራሪያ (የመድረሻ አድራሻ እና የሚጻፍ መልዕክት)</label>
                     <textarea id="deliveryDetails" rows="4" placeholder="ዕቃው የት ነው የሚደርሰው? ለተቀባዩ የሚተላለፍ መልዕክት ካለ እዚህ ይጻፉ..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">ትዕዛዙን አረጋግጥ & ላክ</button>
