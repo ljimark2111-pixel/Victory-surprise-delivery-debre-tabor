@@ -1,14 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// ካንተ ስክሪንሾት ላይ በጥንቃቄ የተወሰደው የተሟላው የቪክቶሪ ኦፊሴላዊ መለያ ኮድ
+// አሁን በኮፒ ያመጣኸው 100% ትክክለኛው የቪክቶሪ ኦፊሴላዊ መለያ ኮድ
 const firebaseConfig = {
-  apiKey: "AIzaSyATMqgGUqQ3Hx0MdhNqUb-J8_rR5Bf5jMo",
+  apiKey: "AIzaSyATMqgGUqQ3Hx0MdhNqUb-JQfJedD6Mov0",
   authDomain: "victory-surprise.firebaseapp.com",
   projectId: "victory-surprise",
-  storageBucket: "victory-surprise.appspot.com",
-  messagingSenderId: "329743937287",
-  appId: "1:329743937287:web:6eb5cab9c3f3f2d2946c1e",
+  storageBucket: "victory-surprise.firebasestorage.app",
+  messagingSenderId: "329749397287",
+  appId: "1:329749397287:web:6eb5cab9c3cb470b2f3302",
   measurementId: "G-J6GN6FGSNZ"
 };
 
