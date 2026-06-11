@@ -443,6 +443,7 @@ input:focus, select:focus, textarea:focus {
     background-color: var(--border-color);
     width: 100%;
 }
+
 /* የጀርባ ሎጎ መያዣ - ከጀርባ Fixed ለማድረግ */
 .bg-logo-animation {
     position: fixed;
@@ -450,7 +451,7 @@ input:focus, select:focus, textarea:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    opacity: 0.20; /* ሎጎው በደምቅ ሁኔታ እንዲታይ ተለወጠ */
+    opacity: 0.20; /* ሎጎው በደመቀ ሁኔታ እንዲታይ */
     pointer-events: none;
     user-select: none;
     width: 85%;
@@ -459,6 +460,7 @@ input:focus, select:focus, textarea:focus {
     justify-content: center;
     align-items: center;
 }
+
 /* የሎጎው ምስል አኒሜሽን */
 .anim-logo-img {
     width: 100%;
