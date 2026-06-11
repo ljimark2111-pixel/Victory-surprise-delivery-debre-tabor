@@ -444,13 +444,14 @@ input:focus, select:focus, textarea:focus {
     width: 100%;
 }
 /* የጀርባ ሎጎ መያዣ - ከጀርባ Fixed ለማድረግ */
+
 .bg-logo-animation {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1; /* ከፅሁፎች በስተጀርባ እንዲሆን */
-    opacity: 0.05; /* በጣም ደብዛዛ እንዲሆን 5% ብቻ */
+    z-index: -1;
+    opacity: 0.20; /* ሎጎው በደምቅ ሁኔታ እንዲታይ ተለወጠ */
     pointer-events: none;
     user-select: none;
     width: 85%;
