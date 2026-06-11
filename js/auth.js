@@ -1,0 +1,94 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// በአንተ ስክሪንሾት ላይ የተገኘው የቪክቶሪ ኦፊሴላዊ መለያ ኮድ
+const firebaseConfig = {
+  apiKey: "AIzaSyATMqgGUqQ3Hx0MdhnQUb-J8",
+  authDomain: "victory-surprise.firebaseapp.com",
+  projectId: "victory-surprise",
+  storageBucket: "victory-surprise.appspot.com",
+  messagingSenderId: "329743937287",
+  appId: "1:329743937287:web:6eb5cab9c3f3f2d2946c1e",
+  measurementId: "G-J6GN6FGSNZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+let isSignUpMode = false;
+
+// በሁኔታዎች መካከል መቀያየሪያ (Login vs SignUp)
+window.switchAuthMode = function(signUp) {
+    isSignUpMode = signUp;
+    const authTitle = document.getElementById('authTitle');
+    const authBtn = document.getElementById('authBtn');
+    const authToggleText = document.getElementById('authToggleText');
+    
+    if (signUp) {
+        authTitle.innerHTML = `<i class="fa-solid fa-user-plus"></i> አዲስ አካውንት መክፈቻ`;
+        authBtn.innerText = "አካውንት ክፈት (Sign Up)";
+        authToggleText.innerHTML = `አካውንት አለዎት? <span onclick="switchAuthMode(false)">እዚህ ይግቡ (Login)</span>`;
+    } else {
+        authTitle.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> ወደ አካውንት መግቢያ`;
+        authBtn.innerText = "ግባ (Login)";
+        authToggleText.innerHTML = `አካውንት የለዎትም? <span onclick="switchAuthMode(true)">አዲስ ክፈት (Sign Up)</span>`;
+    }
+}
+
+// ፎርም ሰብሚት ሲደረግ
+const authForm = document.getElementById('authForm');
+if (authForm) {
+    authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('authEmail').value;
+        const password = document.getElementById('authPassword').value;
+
+        if (isSignUpMode) {
+            // አዲስ አካውንት መፍጠር
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("🎉 አካውንትዎ በተሳካ ሁኔታ ተፈጥሯል!");
+                })
+                .catch((error) => {
+                    alert("ስህተት ተከስቷል: " + error.message);
+                });
+        } else {
+            // መግቢያ
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("👋 እንኳን ደህና መጡ! በተሳካ ሁኔታ ገብተዋል።");
+                })
+                .catch((error) => {
+                    alert("ስህተት: ኢሜይል ወይም ፓስወርድ አልተገኘም!");
+                });
+        }
+    });
+}
+
+// ተጠቃሚው መግባቱን ወይም መውጣቱን የሚከታተል (State Observer)
+onAuthStateChanged(auth, (user) => {
+    const authBox = document.getElementById('authBox');
+    const profileCard = document.getElementById('profileCard');
+    const userEmailDisplay = document.getElementById('userEmailDisplay');
+
+    if (user) {
+        // ሰውየው ከገባ ፎርሙን ደብቅ ፕሮፋይሉን አሳይ
+        if(authBox) authBox.style.display = 'none';
+        if(profileCard) profileCard.style.display = 'block';
+        if(userEmailDisplay) userEmailDisplay.innerText = user.email;
+    } else {
+        // ካልገባ ፕሮፋይሉን ደብቅ ፎርሙን አሳይ
+        if(authBox) authBox.style.display = 'block';
+        if(profileCard) profileCard.style.display = 'none';
+    }
+});
+
+// ከአካውንት መውጫ
+window.handleLogout = function() {
+    signOut(auth).then(() => {
+        alert("ከአካውንትዎ ወጥተዋል።");
+    }).catch((error) => {
+        alert("መውጣት አልተቻለም!");
+    });
+}
