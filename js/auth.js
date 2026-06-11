@@ -1,9 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// በአንተ ስክሪንሾት ላይ የተገኘው የቪክቶሪ ኦፊሴላዊ መለያ ኮድ
+// ካንተ ስክሪንሾት ላይ በጥንቃቄ የተወሰደው የተሟላው የቪክቶሪ ኦፊሴላዊ መለያ ኮድ
 const firebaseConfig = {
-  apiKey: "AIzaSyATMqgGUqQ3Hx0MdhnQUb-J8",
+  apiKey: "AIzaSyATMqgGUqQ3Hx0MdhNqUb-J8_rR5Bf5jMo",
   authDomain: "victory-surprise.firebaseapp.com",
   projectId: "victory-surprise",
   storageBucket: "victory-surprise.appspot.com",
@@ -26,13 +26,13 @@ window.switchAuthMode = function(signUp) {
     const authToggleText = document.getElementById('authToggleText');
     
     if (signUp) {
-        authTitle.innerHTML = `<i class="fa-solid fa-user-plus"></i> አዲስ አካውንት መክፈቻ`;
-        authBtn.innerText = "አካውንት ክፈት (Sign Up)";
-        authToggleText.innerHTML = `አካውንት አለዎት? <span onclick="switchAuthMode(false)">እዚህ ይግቡ (Login)</span>`;
+        if(authTitle) authTitle.innerHTML = `<i class="fa-solid fa-user-plus"></i> አዲስ አካውንት መክፈቻ`;
+        if(authBtn) authBtn.innerText = "አካውንት ክፈት (Sign Up)";
+        if(authToggleText) authToggleText.innerHTML = `አካውንት አለዎት? <span onclick="switchAuthMode(false)">እዚህ ይግቡ (Login)</span>`;
     } else {
-        authTitle.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> ወደ አካውንት መግቢያ`;
-        authBtn.innerText = "ግባ (Login)";
-        authToggleText.innerHTML = `አካውንት የለዎትም? <span onclick="switchAuthMode(true)">አዲስ ክፈት (Sign Up)</span>`;
+        if(authTitle) authTitle.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> ወደ አካውንት መግቢያ`;
+        if(authBtn) authBtn.innerText = "ግባ (Login)";
+        if(authToggleText) authToggleText.innerHTML = `አካውንት የለዎትም? <span onclick="switchAuthMode(true)">አዲስ ክፈት (Sign Up)</span>`;
     }
 }
 
@@ -73,12 +73,10 @@ onAuthStateChanged(auth, (user) => {
     const userEmailDisplay = document.getElementById('userEmailDisplay');
 
     if (user) {
-        // ሰውየው ከገባ ፎርሙን ደብቅ ፕሮፋይሉን አሳይ
         if(authBox) authBox.style.display = 'none';
         if(profileCard) profileCard.style.display = 'block';
         if(userEmailDisplay) userEmailDisplay.innerText = user.email;
     } else {
-        // ካልገባ ፕሮፋይሉን ደብቅ ፎርሙን አሳይ
         if(authBox) authBox.style.display = 'block';
         if(profileCard) profileCard.style.display = 'none';
     }
