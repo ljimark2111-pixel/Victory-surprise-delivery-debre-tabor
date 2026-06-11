@@ -443,3 +443,33 @@ input:focus, select:focus, textarea:focus {
     background-color: var(--border-color);
     width: 100%;
 }
+/* የጀርባ ሎጎ መያዣ - ከጀርባ Fixed ለማድረግ */
+.bg-logo-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ከፅሁፎች በስተጀርባ እንዲሆን */
+    opacity: 0.05; /* በጣም ደብዛዛ እንዲሆን 5% ብቻ */
+    pointer-events: none;
+    user-select: none;
+    width: 85%;
+    max-width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* የሎጎው ምስል አኒሜሽን */
+.anim-logo-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(255, 51, 68, 0.4));
+    animation: victoryProPulse 7s infinite ease-in-out;
+}
+
+@keyframes victoryProPulse {
+    0% { transform: scale(0.96); filter: drop-shadow(0 0 30px rgba(255, 51, 68, 0.2)); }
+    50% { transform: scale(1.04); filter: drop-shadow(0 0 60px rgba(255, 51, 68, 0.6)); }
+    100% { transform: scale(0.96); filter: drop-shadow(0 0 30px rgba(255, 51, 68, 0.2)); }
+}
