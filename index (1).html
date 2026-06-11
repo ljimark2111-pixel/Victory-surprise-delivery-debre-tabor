@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory Surprise Delivery - Debre Tabor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body><div class="bg-logo-animation">
+    <img src="logo.png" alt="Victory Delivery Logo" class="anim-logo-img">
+</div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'"><span class="logo-text">V<span>ICTORY</span></span></div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">🏠 ዋና ገጽ</a>
+                <a href="order.html" class="nav-link">📦 ማዘዣ</a>
+                <a href="tracking.html" class="nav-link">🚚 መከታተያ</a>
+                <a href="about.html" class="nav-link">ℹ️ ስለ እኛ</a>
+            </nav>
+            <div class="menu-toggle" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- የጎን ምናሌ (Drawer) -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header"><h3>ማውጫ Menu</h3><span class="close-btn" onclick="toggleDrawer()">&times;</span></div>
+        <ul class="drawer-links">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> ዋና ገጽ</a></li>
+            <li><a href="order.html"><i class="fa-solid fa-box-open"></i> ዕቃ ማዘዣ</a></li>
+            <li><a href="tracking.html"><i class="fa-solid fa-truck-fast"></i> የቀጥታ መከታተያ</a></li>
+            <li><a href="profile.html"><i class="fa-solid fa-user"></i> ፕሮፋይል</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> ስለ እኛ</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+    <main class="container section">
+        <section class="hero animate-fade-in">
+            <h1>Victory Surprise Delivery</h1>
+            <p>ለወዳጅ ዘመድዎ የማይረሳ ደስታን እና አስገራሚ ስጦታዎችን በጥራት እና በፍጥነት እናደርሳለን!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="order.html" class="btn btn-primary"><i class="fa-solid fa-basket-shopping"></i> አሁኑኑ እዘዝ</a>
+                <a href="tracking.html" class="btn" style="background-color: #161920; border: 1px solid var(--border-color); color: white;"><i class="fa-solid fa-compass"></i> ትዕዛዝ ተከታተል</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active"><i class="fa-solid fa-house"></i><span>ዋና ገጽ</span></a>
+        <a href="order.html" class="bottom-nav-item"><i class="fa-solid fa-box"></i><span>ማዘዣ</span></a>
+        <a href="tracking.html" class="bottom-nav-item"><i class="fa-solid fa-truck"></i><span>መከታተያ</span></a>
+        <a href="profile.html" class="bottom-nav-item"><i class="fa-solid fa-user"></i><span>ፕሮፋይል</span></a>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
