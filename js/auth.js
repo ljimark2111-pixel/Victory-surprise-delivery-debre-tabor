@@ -68,7 +68,8 @@ if (authForm) {
 
 // ተጠቃሚው መግባቱን ወይም መውጣቱን የሚከታተል (State Observer)
 onAuthStateChanged(auth, (user) => {
-    const authBox = document.getElementById('authBox');
+    // በ ID ካላገኘው በ Class Name ፈልጎ ሳጥኑን እንዲያጠፋው ተስተካክሏል
+    const authBox = document.getElementById('authBox') || document.querySelector('.auth-box');
     const profileCard = document.getElementById('profileCard');
     const userEmailDisplay = document.getElementById('userEmailDisplay');
 
